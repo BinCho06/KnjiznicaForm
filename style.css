@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial;
+    font-size: 1.2em;
+    background: url("slike/background.png");
+    transition: background-color 0.5s, color 0.5s;
+}
+h1{
+    text-align: center;
+}
+form{
+    padding: 3%;
+    border: 2px solid;
+    border-radius: 20px;
+    background-color: white;
+}
+form div{
+    padding: 15px;
+}
+label{
+    line-height: 25px;
+}
+input, select{
+    font-size: 1em;
+    width: 60%;
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 1px solid #777;
+}
+input:hover, select:hover{
+    border-bottom: 1px solid black;
+    background-color: #eaeeee;
+}
+input:focus-within, select:focus-within{
+    border: none;
+}
+input[type=submit]{
+    border: solid 1px;
+    border-radius: 1em;
+    background-color: #5af;
+    font-size: 1.2em;
+    cursor: pointer;
+
+    margin-left: 20%;
+}
+
+.bold{
+    font-weight: bold;
+    padding-top: 10px;
+}
+.name{
+    display: inline;
+}
+.name input{
+    width: 35%;
+}
+
+#theme-icon{
+    cursor: pointer;
+    padding: 1vh;
+    width: 2vh;
+    object-fit: contain;
+}
+#icon{
+    transition: background-color 0.5s;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    background-color: #fff;
+    border: solid 2px;
+    border-radius: 20%;
+    height: 4vh;
+}
+#container{
+    margin: 6vh 5%;
+}
+#postna-st{
+    width: 10%;
+}
