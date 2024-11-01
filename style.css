@@ -10,25 +10,25 @@ body{
 }
 h1{
     text-align: center;
+    margin-bottom: 10px;
 }
 form{
     padding: 3%;
     border: 2px solid;
-    border-radius: 20px;
+    border-radius: 2em;
     background-color: white;
-}
-form div{
-    padding: 15px;
 }
 label{
     line-height: 25px;
 }
 input, select{
     font-size: 1em;
-    width: 60%;
     padding: 5px 10px;
     border: none;
     border-bottom: 1px solid #777;
+}
+select{
+    cursor: pointer;
 }
 input:hover, select:hover{
     border-bottom: 1px solid black;
@@ -41,21 +41,24 @@ input[type=submit]{
     border: solid 1px;
     border-radius: 1em;
     background-color: #5af;
-    font-size: 1.2em;
     cursor: pointer;
-
-    margin-left: 20%;
+    padding: 0.4em 1.2em;
+    margin-left: calc(50% - 2em);
 }
 
-.bold{
-    font-weight: bold;
-    padding-top: 10px;
+.long{
+    padding: 1em;
 }
-.name{
+.long div{
     display: inline;
 }
-.name input{
+.long input{
     width: 35%;
+}
+.long input[type=radio]{
+    width: auto;
+    margin-left: 3em;
+    cursor: pointer;
 }
 
 #theme-icon{
@@ -77,6 +80,59 @@ input[type=submit]{
 #container{
     margin: 6vh 5%;
 }
-#postna-st{
-    width: 10%;
+#postal-code{
+    width: 3em;
+}
+#phone{
+    width: 7em;
+}
+#expiration-date{
+    width: 4em;
+}
+#cvv{
+    width: 2em;
+}
+
+@media (max-width: 800px) {
+    body{
+        font-size: 0.8em;
+    }
+    .long div{
+        display: block;
+        padding: 0.5em 0;
+    }
+    .long div input{
+        width: 60%;
+    }
+}
+@media (min-width: 1200px) {
+    #container{
+        margin: 6vh auto;
+        width: 1100px;
+    }
+}
+@media (min-width: 2000px) {
+    #container{
+        margin: 6vh 22%;
+        width: 56%;
+    }
+    form{
+        font-size: 1.6em;
+    }
+    .long input[type=radio]{
+        transform: scale(1.8);
+        margin-right: 0.5em;
+        vertical-align: middle;
+    }
+}
+@media (min-width: 4000px) {
+    body{
+        font-size: 2em;
+    }
+    form{
+        font-size: 2em;
+    }
+    .long input[type=radio]{
+        transform: scale(3.8);
+    }
 }

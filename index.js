@@ -11,6 +11,14 @@ function changeTheme() {
     }
 }
 
+function showKartica() {
+    document.querySelector('.kartica').style.display = 'block';
+}
+
+function hideKartica() {
+    document.querySelector('.kartica').style.display = 'none';
+}
+
 function applyDarkModeStyles() {
     document.body.style.backgroundColor = "#000";
     document.body.style.color = "#fff";

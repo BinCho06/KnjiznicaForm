@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="slike/favicon.ico" type="image/x-icon">
     <title>StefanKoren4RB</title>
 </head>
 <body>
@@ -13,33 +14,40 @@
 
         <form method="POST" action="none">
             <h1>Članstvo za knjižnico</h1>
-            <div class="name">
+            <div class="long">
                 <div>
-                <label for="first">Ime:</label>
-                <input type="text" name="first" id="first" placeholder="Ime">
+                    <label for="first">Ime:</label>
+                    <input type="text" id="first" placeholder="Ime" required>
                 </div>
                 <div>
-                <label for="last">Priimek:</label>
-                <input type="text" name="last" id="last" placeholder="Priimek">
+                    <label for="last">Priimek:</label>
+                    <input type="text" id="last" placeholder="Priimek" required>
                 </div>
             </div>
-            <div>
-                <label for="email">E-mail:</label>
-                <input type="email" name="email">
+            <div class="long">
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" placeholder="primer@gmail.com" required>
+                </div>
+                <div>
+                    <label for="city">Bivališče:</label>
+                    <input type="text" id="city" required>
+                </div>
             </div>
-            <div>
-                <label for="city">Bivališče:</label>
-                <input type="text" name="city">
+            
+            <div class="long">
+                <div>
+                    <label for="postal">Ime pošte:</label>
+                    <input type="text" id="postal" required>
+                </div>
+                <div>
+                    <label for="postal-code">Poštna številka:</label>
+                    <input type="text" id="postal-code" maxlength="4" pattern="\d{4}" placeholder="0000" required>
+                </div>
             </div>
-            <div>
-                <label for="postal">Ime pošte:</label>
-                <input type="text" name="postal">
-                <label for="state">Poštna številka:</label>
-                <input type="text" name="address" id="postna-st">
-            </div>
-            <div>
-                <label for="country">Country</label>
-                <select name="country" id="country">
+            <div class="long">
+                <label for="country">Država:</label>
+                <select id="country">
                     <option value="Afghanistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
@@ -239,13 +247,43 @@
                     <option value="Zambia">Zambia</option>
                     <option value="Zimbabwe">Zimbabwe</option>
                 </select>
+                <div>
+                    <label for="phone">Telefon:</label>
+                    <input type="text" id="phone" maxlength="11" placeholder="000-000-000" pattern="^(\d{3}-\d{3}-\d{3}|\d{3} \d{3} \d{3}|\d{9})$" required>
+                </div>
             </div>
-            <div>
-                <label for="status" class="bold">Accommodation Status</label>
-                <select name="status" id="status">
-                    <option value="completed">Completed</option>
-                    <option value="failed">Failed</option>
-                </select>
+            <div class="long">
+                <label>Plačilo:</label>
+                <div>
+                    <input type="radio" name="rad" id="kartica" onclick="showKartica()" checked>
+                    <label for="kartica">Kartica</label>
+                </div>
+                <div>
+                    <input type="radio" name="rad" id="poloznica" onclick="hideKartica()">
+                    <label for="poloznica">Položnica(po pošti)</label>
+                </div>
+            </div>
+            <div class="kartica">
+                <div class="long">
+                    <div>
+                        <label for="cardholder-name">Imetnik kartice:</label>
+                        <input type="text" id="cardholder-name" name="cardholder-name" required placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label for="expiration-date">Datum poteka:</label>
+                        <input type="text" id="expiration-date" name="expiration-date" required pattern="\d{2}/\d{2}" placeholder="MM/YY" maxlength="5" title="Format: MM/YY">
+                    </div>
+                </div>
+                <div class="long">
+                    <div>
+                        <label for="card-number">Številka kartice:</label>
+                        <input type="text" id="card-number" name="card-number" required pattern="\d{4} \d{4} \d{4} \d{4}" placeholder="1234 5678 9012 3456" maxlength="19" title="Format: 1234 5678 9012 3456">
+                    </div>
+                    <div>
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" required pattern="\d{3}" placeholder="123" maxlength="3" title="3-digit CVV code">
+                    </div>
+                </div>
             </div>
             <input type="submit" value="Oddaj">
         </form>
