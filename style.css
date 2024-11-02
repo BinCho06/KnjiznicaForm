@@ -1,3 +1,7 @@
+:root {
+    --primary-color: #fff;
+    --secondary-color: #000;
+}
 *{
     margin: 0;
     padding: 0;
@@ -10,22 +14,47 @@ body{
 }
 h1{
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 1em;
+}
+h2{
+    display: inline;
+    background-color: var(--primary-color);
+    font-size: 1em;
+    padding: 0.3em 0.8em 0.6em;
+    line-height: 2.4em;
+    border: 2px solid;
+    border-bottom: 1px solid;
+    border-radius: 1em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+h2:hover{
+    background-color: #aaa;
 }
 form{
+    margin-top: -0.15em;
+    width: 105%;
     padding: 3%;
     border: 2px solid;
     border-radius: 2em;
-    background-color: white;
+    border-top-left-radius: 0;
+    background-color: var(--primary-color);
+    z-index: 2;
 }
 label{
     line-height: 25px;
+    margin-left: 0.6em;
 }
 input, select{
     font-size: 1em;
     padding: 5px 10px;
     border: none;
     border-bottom: 1px solid #777;
+}
+input[type=text], input[type=email], select{
+    width: 60%;
 }
 select{
     cursor: pointer;
@@ -44,21 +73,62 @@ input[type=submit]{
     cursor: pointer;
     padding: 0.4em 1.2em;
     margin-left: calc(50% - 2em);
+    margin-top: 1em;
+}
+input[type=submit]:hover{
+    color: white;
+}
+button {
+    margin-left: 1em;
+    padding: 0.4em 0.8em;
+    border-radius: 0.8em;
+    font-size: 0.8em;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+button:hover{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
-.long{
-    padding: 1em;
-}
-.long div{
+.inline{
     display: inline;
 }
-.long input{
-    width: 35%;
+.solo{
+    padding-bottom: 1em;
 }
-.long input[type=radio]{
+.duo{
+    width: 100%;
+}
+.duo div{
+    display: inline-block;
+    padding-bottom: 1.1em;
+}
+.duo input[type=radio]{
     width: auto;
     margin-left: 3em;
     cursor: pointer;
+}
+.kartica .duo input{
+    width: 50%;
+}
+.active h2{
+    background-color: var(--primary-color);
+    border-bottom: 2px solid transparent;
+    padding: 0.5em 1em 0.3em;
+    margin-bottom: 0em;
+    font-size: 1.4em;
+    line-height: 1.4em;
+}
+.repeater-field {
+    margin-bottom: 1.2em;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.name-only {
+    display: none;
+    font-weight: bold;
 }
 
 #theme-icon{
@@ -72,13 +142,16 @@ input[type=submit]{
     position: absolute;
     top: 1%;
     right: 1%;
-    background-color: #fff;
+    background-color: var(--primary-color);
     border: solid 2px;
     border-radius: 20%;
     height: 4vh;
 }
 #container{
-    margin: 6vh 5%;
+    margin: 6vh 8% 0 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #postal-code{
     width: 3em;
@@ -92,17 +165,19 @@ input[type=submit]{
 #cvv{
     width: 2em;
 }
+#izposoja{
+    display: none;
+}
 
 @media (max-width: 800px) {
     body{
         font-size: 0.8em;
     }
-    .long div{
-        display: block;
-        padding: 0.5em 0;
+    input[type=text], input[type=email]{
+        width: 90%;
     }
-    .long div input{
-        width: 60%;
+    #container{
+        margin-left: 0;
     }
 }
 @media (min-width: 1200px) {
@@ -113,13 +188,13 @@ input[type=submit]{
 }
 @media (min-width: 2000px) {
     #container{
-        margin: 6vh 22%;
+        margin: 6vh 20% 0 18%;
         width: 56%;
     }
     form{
         font-size: 1.6em;
     }
-    .long input[type=radio]{
+    .duo input[type=radio]{
         transform: scale(1.8);
         margin-right: 0.5em;
         vertical-align: middle;
@@ -132,7 +207,7 @@ input[type=submit]{
     form{
         font-size: 2em;
     }
-    .long input[type=radio]{
+    .duo input[type=radio]{
         transform: scale(3.8);
     }
 }
