@@ -16,23 +16,6 @@ h1{
     text-align: center;
     margin-bottom: 1em;
 }
-h2{
-    display: inline;
-    background-color: var(--primary-color);
-    font-size: 1em;
-    padding: 0.3em 0.8em 0.6em;
-    line-height: 2.4em;
-    border: 2px solid;
-    border-bottom: 1px solid;
-    border-radius: 1em;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    cursor: pointer;
-    z-index: 3;
-}
-h2:hover{
-    background-color: #aaa;
-}
 form{
     margin-top: -0.15em;
     width: 105%;
@@ -91,8 +74,25 @@ button:hover{
     background-color: var(--secondary-color);
 }
 
-.inline{
+.menu{
     display: inline;
+}
+.menu h2{
+    display: inline;
+    background-color: var(--primary-color);
+    font-size: 1em;
+    padding: 0.3em 0.8em 0.6em;
+    line-height: 2.4em;
+    border: 2px solid;
+    border-bottom: 1px solid;
+    border-radius: 1em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+.menu h2:hover{
+    background-color: #aaa;
 }
 .solo{
     padding-bottom: 1em;
@@ -167,6 +167,15 @@ button:hover{
 }
 #izposoja{
     display: none;
+}
+#explain-cvv{
+    padding: 0 0.2em;
+    border: 1px solid;
+    border-radius: 50%;
+    font-weight: bold;
+}
+#explain-cvv:hover{
+    cursor: pointer;
 }
 
 @media (max-width: 800px) {
