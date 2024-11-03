@@ -95,19 +95,20 @@ button:hover{
     background-color: #aaa;
 }
 .solo{
-    padding-bottom: 1em;
+    padding-bottom: 1.5em;
 }
 .duo{
     width: 100%;
 }
 .duo div{
     display: inline-block;
-    padding-bottom: 1.1em;
+    padding-bottom: 1.5em;
 }
 .duo input[type=radio]{
     width: auto;
     margin-left: 3em;
     cursor: pointer;
+    vertical-align: middle;
 }
 .kartica .duo input{
     width: 50%;
@@ -206,7 +207,6 @@ button:hover{
     .duo input[type=radio]{
         transform: scale(1.8);
         margin-right: 0.5em;
-        vertical-align: middle;
     }
 }
 @media (min-width: 4000px) {
@@ -220,3 +220,24 @@ button:hover{
         transform: scale(3.8);
     }
 }
+/*phone
+@media (max-width: 1080px) {
+    body{
+        font-size: 2em;
+    }
+    form{
+        font-size: 2em;
+    }
+    input[type=text], input[type=email]{
+        width: 90%;
+    }
+    input{
+        margin-left: 0.5em;
+    }
+    .duo input[type=radio]{
+        transform: scale(3.8);
+    }
+    #container{
+        margin-left: 0;
+    }
+}*/
