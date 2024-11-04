@@ -11,8 +11,9 @@
     <div id="icon" onclick="changeTheme()">
         <img id="theme-icon" src="slike/moon.ico" alt="dark mode">
     </div>
+    <div class="clickable-area" onclick="credits()"></div>
     <div id="container">
-        <div>
+        <div id="form-container">
         <div>
             <div id="menu-clanstvo" class="menu active" onclick="showClanstvo()">
                 <h2>Članstvo</h2>
@@ -304,7 +305,7 @@
                     <span class="name-only">Knjiga</span>
                     <div class="field-content">
                         <div class="solo">
-                            <label for="bookSelect">Knjiga:</label>
+                            <label>Knjiga:</label>
                             <select name="book" class="bookSelect" required>
                             <option value="">Izberi knjigo</option>
                             <option value="Harry Potter">Harry Potter</option>
@@ -316,11 +317,11 @@
                         </div>
                         <div class="duo">
                             <div>
-                                <label for="date1">Izposoja:</label>
+                                <label>Izposoja:</label>
                                 <input type="text" name="date1[]" class="date-picker" placeholder="Izberite datum" required>
                             </div>
                             <div>
-                                <label for="date2">Vrnitev:</label>
+                                <label>Vrnitev:</label>
                                 <input type="text" name="date2[]" class="date-picker" placeholder="Izberite datum" required>
                             </div>
                         </div>

@@ -85,11 +85,11 @@ document.getElementById('addButton').addEventListener('click', function() {
             </div>
             <div class="duo">
                 <div>
-                    <label for="date1">Datum 1:</label>
+                    <label>Izposoja:</label>
                     <input type="text" name="date1[]" class="date-picker" placeholder="Izberite datum">
                 </div>
                 <div>
-                    <label for="date2">Datum 2:</label>
+                    <label>Vrnitev:</label>
                     <input type="text" name="date2[]" class="date-picker" placeholder="Izberite datum">
                 </div>
             </div>
@@ -205,81 +205,32 @@ function validateClanstvo(event){
     });
 
     if(!allFiled){
-        Swal.fire({
-            background: primary,
-            color: secondary,
-            title: 'Napaka!',
-            text: 'Prosimo, izpolnite vsa polja!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
+        errorAlert('Prosimo, izpolnite vsa polja!');
         return;
     }
     if(!/^\S+@\S+\.\S+$/.test(document.getElementById('email').value.trim())){
-        Swal.fire({
-            background: primary,
-            color: secondary,
-            title: 'Napaka!',
-            text: 'Prosimo, vnesite veljavni e-mail naslov!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
+        errorAlert('Prosimo, vnesite veljavni e-mail naslov!');
         return;
     }
     if(document.getElementById('postal-code').value.trim().length !== 4){
-        Swal.fire({
-            background: primary,
-            color: secondary,
-            title: 'Napaka!',
-            text: 'Prosimo, vnesite veljavno poštno številko!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
+        errorAlert('Prosimo, vnesite veljavno poštno številko!');
         return;
     }
     if(document.getElementById('phone').value.trim().length !== 11){
-        Swal.fire({
-            background: primary,
-            color: secondary,
-            title: 'Napaka!',
-            text: 'Prosimo, vnesite veljavno telefonsko številko!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
+        errorAlert('Prosimo, vnesite veljavno telefonsko številko!');
         return;
     }
     if(document.getElementById('kartica').checked){
         if(document.getElementById('expiration-date').value.trim().length !== 5){
-            Swal.fire({
-                background: primary,
-                color: secondary,
-                title: 'Napaka!',
-                text: 'Prosimo, vnesite veljavni datum poteka!',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            })
+            errorAlert('Prosimo, vnesite veljavni datum poteka!');
             return;
         }
         if(document.getElementById('card-number').value.trim().length !== 19){
-            Swal.fire({
-                background: primary,
-                color: secondary,
-                title: 'Napaka!',
-                text: 'Prosimo, vnesite veljavno številko kartice!',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            })
+            errorAlert('Prosimo, vnesite veljavno številko kartice!');
             return;
         }
         if(document.getElementById('cvv').value.trim().length !== 3){
-            Swal.fire({
-                background: primary,
-                color: secondary,
-                title: 'Napaka!',
-                text: 'Prosimo, vnesite veljaven CVV!',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            })
+            errorAlert('Prosimo, vnesite veljaven CVV!');
             return;
         }
     }
@@ -290,7 +241,10 @@ function validateClanstvo(event){
         title: 'Uspešna včlanitev!',
         text: 'Vaše včlanitev v knjižnico je bila uspešno oddana!',
         icon: 'success',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+            confirmButton: 'buttoncolor'
+        }
     }).then(() => {
         location.reload();
     });
@@ -303,14 +257,7 @@ function validateIzposoja(event){
     let allFiled = true;
 
     if(requiredFields.length == 0){
-        Swal.fire({
-            background: primary,
-            color: secondary,
-            title: 'Napaka!',
-            text: 'Prosimo, dodaj kakšno knjigo!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
+        errorAlert('Prosimo, dodaj kakšno knjigo!');
         return;
     }
 
@@ -321,14 +268,7 @@ function validateIzposoja(event){
     });
 
     if(!allFiled){
-        Swal.fire({
-            background: primary,
-            color: secondary,
-            title: 'Napaka!',
-            text: 'Prosimo, izpolnite vsa polja!',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        })
+        errorAlert('Prosimo, izpolnite vsa polja!');
         return;
     }
 
@@ -338,10 +278,27 @@ function validateIzposoja(event){
         title: 'Uspešna izposoja!',
         text: 'Vaše izposoja knjig je bilo uspešno oddana!',
         icon: 'success',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+            confirmButton: 'buttoncolor'
+        }
     }).then(() => {
         location.reload();
     });
+}
+
+function errorAlert(message){
+    Swal.fire({
+        background: primary,
+        color: secondary,
+        title: 'Napaka!',
+        text: message,
+        icon: 'error',
+        confirmButtonText: 'OK',
+        customClass: {
+            confirmButton: 'buttoncolor'
+        }
+    })  
 }
 
 document.getElementById('explain-cvv').addEventListener('click', function() {
@@ -351,6 +308,23 @@ document.getElementById('explain-cvv').addEventListener('click', function() {
         title: 'CVV (Card Verification Value)',
         text: 'je 3 ali 4-mestna številka, ki se nahaja na vaši kreditni kartici.',
         icon: 'info',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+            confirmButton: 'buttoncolor'
+        }
     })    
 });
+
+function credits(){
+    Swal.fire({
+        background: primary,
+        color: secondary,
+        title: 'Vizitka',
+        text: 'Štefan Koren 4RB, 2024',
+        icon: 'info',
+        confirmButtonText: 'OK',
+        customClass: {
+            confirmButton: 'buttoncolor'
+        }
+    })   
+}
