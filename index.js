@@ -320,7 +320,7 @@ function credits(){
         background: primary,
         color: secondary,
         title: 'Vizitka',
-        text: 'Štefan Koren 4RB, 2024',
+        text: 'Štefan Koren 4. Rb, 2024',
         icon: 'info',
         confirmButtonText: 'OK',
         customClass: {
