@@ -28,6 +28,9 @@ label{
     line-height: 25px;
     margin-left: 0.6em;
 }
+label sup{
+    color: red;
+}
 input, select{
     font-size: 1em;
     padding: 5px 10px;
@@ -188,6 +191,7 @@ button:hover{
 #explain-cvv{
     font-size: 0.4em;
     font-weight: bold;
+    color: black;
     padding: 0 0.2em;
     border: 1px solid;
     border-radius: 50%;

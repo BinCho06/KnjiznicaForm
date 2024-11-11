@@ -193,10 +193,10 @@ document.getElementById('expiration-date').addEventListener('keypress', function
     }
     let position = e.target.selectionStart;
     let value = e.target.value;
-    if(parseInt(e.key) > 1 && (position == 0 || position == 2)){
+    if(parseInt(e.key) > 1 && (position == 0)){
         e.target.value += "0";
     }
-    if((position == 1 && value[0] == "1" || position == 4 && value[3] == "1")  && parseInt(e.key) > 2){
+    if((position == 1 && value[0] == "1")  && parseInt(e.key) > 2){
         e.preventDefault();
     }
 });
@@ -339,7 +339,7 @@ function credits(){
         background: primary,
         color: secondary,
         title: 'Vizitka',
-        text: 'Štefan Koren 4RB, 2024',
+        text: 'Štefan Koren 4. Rb, 2024',
         icon: 'info',
         confirmButtonText: 'OK',
         customClass: {
