@@ -49,21 +49,25 @@ function showIzposoja() {
 }
 
 
-function initializeFlatpickr(element, setDateToday = false) {
+function initializeFlatpickr(element, minOffset = 0) {
+    //date z offsetom
+    var date=new Date();
+    date.setDate(date.getDate() + minOffset);
     const instance = flatpickr(element, {
         dateFormat: "d-m-Y",
-        minDate: "today",
+        minDate: date,
     });
-    if (setDateToday) {
-        instance.setDate(new Date());
+    if(minOffset==0){
+        instance.setDate(date);
     }
     return instance;
 }
 
 // inicializiraj datepicker(Flatpickr) za privzeta prva 2 datuma
 const firstDateInputs = document.querySelectorAll('.date-picker');
-initializeFlatpickr(firstDateInputs[0], true);
-initializeFlatpickr(firstDateInputs[1]);
+initializeFlatpickr(firstDateInputs[0]);
+initializeFlatpickr(firstDateInputs[1], 1);
+setDynamicMinDateOnChange(firstDateInputs[0], firstDateInputs[1]);
 
 document.getElementById('addButton').addEventListener('click', function() {
     const container = document.getElementById('repeaterContainer');
@@ -101,9 +105,24 @@ document.getElementById('addButton').addEventListener('click', function() {
 
     // inicializiraj datepicker(Flatpickr) za dodane knjige
     const newDateInputs = newField.querySelectorAll('.date-picker');
-    initializeFlatpickr(newDateInputs[0], true);
-    initializeFlatpickr(newDateInputs[1]);
+    initializeFlatpickr(newDateInputs[0]);
+    initializeFlatpickr(newDateInputs[1], 1);
+    setDynamicMinDateOnChange(newDateInputs[0], newDateInputs[1]);
 });
+
+function setDynamicMinDateOnChange(firstDateInput, secondDateInput) {
+    // Access the Flatpickr instance on the first date input
+    firstDateInput._flatpickr.config.onChange.push(function(selectedDates) {
+        if (selectedDates.length > 0) {
+            const selectedDate = selectedDates[0];
+            const minReturnDate = new Date(selectedDate);
+            minReturnDate.setDate(minReturnDate.getDate() + 1); // Set the minimum date to 1 day after the selected date
+
+            // Set the minDate on the second datepicker
+            secondDateInput._flatpickr.set('minDate', minReturnDate);
+        }
+    });
+}
 
 document.getElementById('repeaterContainer').addEventListener('click', function(e) {
     if (e.target.classList.contains('delete-button')) {
