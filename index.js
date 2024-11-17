@@ -213,22 +213,25 @@ document.getElementById('cvv').addEventListener('keypress', function(e) {
 
 function validateClanstvo(event){
     event.preventDefault();
-
-    const requiredFields = document.querySelectorAll("#clanstvo [required]");
-    let allFiled = true;
-
-    requiredFields.forEach( (field) => {
-        if(!field.value.trim()){
-            allFiled = false;
-        }
-    });
-
-    if(!allFiled){
-        errorAlert('Prosimo, izpolnite vsa polja!');
+    
+    if(!document.getElementById('first').value.trim()){
+        errorAlert('Prosimo, vnesite vaše ime!');
         return;
     }
-    if(!/^\S+@\S+\.\S+$/.test(document.getElementById('email').value.trim())){
+    if(!document.getElementById('last').value.trim()){
+        errorAlert('Prosimo, vnesite vaš priimek!');
+        return;
+    }
+    if(!document.getElementById('email').value.trim() || !/^\S+@\S+\.\S+$/.test(document.getElementById('email').value.trim())){
         errorAlert('Prosimo, vnesite veljavni e-mail naslov!');
+        return;
+    }
+    if(!document.getElementById('city').value.trim()){
+        errorAlert('Prosimo, vnesite kraj bivanja!');
+        return;
+    }
+    if(!document.getElementById('postal-name').value.trim()){
+        errorAlert('Prosimo, vnesite kraj pošte!');
         return;
     }
     if(document.getElementById('postal-code').value.trim().length !== 4){
@@ -240,6 +243,10 @@ function validateClanstvo(event){
         return;
     }
     if(document.getElementById('kartica').checked){
+        if(!document.getElementById('cardholder-name').value.trim()){
+            errorAlert('Prosimo, vnesite ime imetnika kartice!');
+            return;
+        }
         if(document.getElementById('expiration-date').value.trim().length !== 5){
             errorAlert('Prosimo, vnesite veljavni datum poteka!');
             return;
