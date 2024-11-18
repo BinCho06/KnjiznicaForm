@@ -15,7 +15,11 @@
   <li>Avtomatizirana izposoja knjig</li>
 </ul>
 <h1>Slike</h1>
-<img src="https://github.com/user-attachments/assets/9226139d-1516-478d-9c2f-5aeb6f379a56" width="60%">
-<img src="https://github.com/user-attachments/assets/012d306d-5a03-4b81-9186-2ad96ffcaa22" width="60%">
-<img src="https://github.com/user-attachments/assets/b5a34382-6b57-46a7-b816-2aedc2618053" width="60%">
-<img src="https://github.com/user-attachments/assets/bcd67260-be6b-420c-a7df-3762a15fffd9" width="60%">
+<p>Dark mode:</p>
+<img src="https://github.com/user-attachments/assets/9226139d-1516-478d-9c2f-5aeb6f379a56" width="49%">
+<img src="https://github.com/user-attachments/assets/012d306d-5a03-4b81-9186-2ad96ffcaa22" width="49%">
+<p>Light mode:</p>
+<img src="https://github.com/user-attachments/assets/b5a34382-6b57-46a7-b816-2aedc2618053" width="49%">
+<img src="https://github.com/user-attachments/assets/bcd67260-be6b-420c-a7df-3762a15fffd9" width="49%">
+<p>Vizitka:</p>
+<img src="https://github.com/user-attachments/assets/acf9fe6e-2275-4cef-81fd-e79e52bb4f2a" width="40%">
